@@ -1,6 +1,6 @@
-def call(String Imagename,String hubuser) {
+def call() {
     sh '''
-    docker build --build-arg TMDB_V3_API_KEY=ca86fe14eca3e76864bc17f59d319b92 -t ${Imagename} .
-    docker tag ${Imagename} ${hubuser}/${Imagename}:latest
+    docker build --build-arg REACT_APP_RAPID_API_KEY=f0ead79813mshb0aa7ddf114a7dap1adb3djsn483b017de1a9 -t youtube .
+    docker tag youtube sevenajay/youtube:latest
     '''
 }
