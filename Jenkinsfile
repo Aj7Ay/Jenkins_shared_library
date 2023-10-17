@@ -57,6 +57,12 @@ pipeline{
                 trivyFs()
             }
         }
+        stage('OWASP FS SCAN') {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
         stage('Docker Build'){
         when { expression { params.action == 'create'}}    
             steps{
